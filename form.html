@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل البيانات</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(to right, #f9d423, #ff4e50);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      direction: rtl;
+    }
+
+    .card {
+      background: white;
+      width: 90%;
+      max-width: 350px;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #ff4e50;
+    }
+
+    button {
+      width: 100%;
+      background: #25D366;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1ebe5d;
+      transform: scale(1.03);
+    }
+
+  </style>
+</head>
+
+<body>
+<a href="index.html" style="
+position:absolute;
+top:20px;
+right:20px;
+background:white;
+padding:8px 12px;
+border-radius:8px;
+text-decoration:none;
+color:black;
+font-size:14px;
+">
+⬅ رجوع
+</a><div class="card">
+      
+
+
+  <form onsubmit="sendToWhatsApp(event)">
+
+    <input id="name" type="text" placeholder="الاسم بالكامل" required>
+
+    <input id="phone" type="tel" placeholder="رقم الهاتف" required>
+
+    <select id="service" required>
+      <option value="">اختر الخدمة</option>
+      <option>خدمات الإنترنت</option>
+      <option>المواقع الحكومية</option>
+    </select>
+
+    <button type="submit">إرسال الطلب</button>
+
+  </form>
+
+</div>
+
+<script>
+function sendToWhatsApp(event) {
+  event.preventDefault();
+
+  var name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+  var service = document.getElementById("service").value;
+
+  var message = "طلب جديد:%0A";
+  message += "الاسم: " + name + "%0A";
+  message += "رقم الهاتف: " + phone + "%0A";
+  message += "الخدمة: " + service;
+
+  var whatsappURL = "https://wa.me/966539572864?text=" + message;
+
+  window.open(whatsappURL, "_blank");
+}
+</script>
+
+</body>
+</html></body>
+</html>
